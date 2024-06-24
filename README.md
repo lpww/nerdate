@@ -20,3 +20,7 @@ An API for interacting with nerdate. Written in Go.
 * `remote`: Contains config files and setup scripts for the production server.
 * `go.mod`: Will declare project dependencies, versions, and module path.
 * `Makefile`: Contains recipes for automating common admin tasks.
+
+## Router
+
+This project uses httprouter. It is a good option for public APIs because it allows custom JSON responses when automatically hanlding 404 and 405 responses. It also automatically handles OPTIONS requests.
