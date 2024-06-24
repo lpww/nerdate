@@ -7,9 +7,9 @@ import (
 )
 
 func (app *application) routes() http.Handler {
-  router := httprouter.New()
+	router := httprouter.New()
 
-  router.HandlerFunc(http.MethodGet, "/v1/healthcheck", app.healthcheckHandler)
+	router.HandlerFunc(http.MethodGet, "/v1/healthcheck", app.healthcheckHandler)
 
-  return router
+	return router
 }
