@@ -10,7 +10,7 @@ An API for interacting with nerdate. Written in Go.
 | POST   | /v1/users          | registerUserHandler  | Register a new user   |
 | GET    | /v1/users/discover | discoverUsersHandler | Show available users  |
 | GET    | /v1/users/matches  | showMatchesHandler   | Show matches          |
-| POST   | /v1/swipe          | createSwipeHandler   | Create a new swipe    |
+| POST   | /v1/swipes          | createSwipeHandler   | Create a new swipe    |
 
 ## Folder structure
 
