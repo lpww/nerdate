@@ -3,6 +3,7 @@ package data
 import (
 	"time"
 
+	"github.com/guregu/null"
 	"github.com/lpww/nerdate/internal/validator"
 )
 
@@ -14,6 +15,7 @@ type Swipe struct {
 	SwipedUserID string `json:"swiped_user_id"` // todo: use the user.ID field when it's been created
 
 	CreatedAt time.Time `json:"-"`
+	DeletedAt null.Time `json:"-"`
 }
 
 func ValidateSwipe(v *validator.Validator, swipe *Swipe) {
