@@ -21,16 +21,16 @@ func TestReadJSON(t *testing.T) {
 		{
 			name: "Standard swipe",
 			give: data.Swipe{
-				UserID:       100,
+				UserID:       "uuid-100",
 				Liked:        true,
-				SwipedUserID: 101,
+				SwipedUserID: "uuid-101",
 			},
 		},
 		{
 			name: "Partial swipe",
 			give: data.Swipe{
-				UserID:       100,
-				SwipedUserID: 101,
+				UserID:       "uuid-100",
+				SwipedUserID: "uuid-101",
 			},
 		},
 		{
@@ -47,10 +47,10 @@ func TestReadJSON(t *testing.T) {
 			}
 
 			var input struct {
-				ID           int64 `json:"id"`
-				UserID       int64 `json:"user_id"`
-				Liked        bool  `json:"liked"`
-				SwipedUserID int64 `json:"swiped_user_id"`
+				ID           string `json:"id"`
+				UserID       string `json:"user_id"`
+				Liked        bool   `json:"liked"`
+				SwipedUserID string `json:"swiped_user_id"`
 			}
 
 			writeRecorder := httptest.NewRecorder()
@@ -85,17 +85,17 @@ func TestWriteJSON(t *testing.T) {
 			name: "Standard swipe",
 			give: envelope{
 				"swipe": data.Swipe{
-					UserID:       100,
+					UserID:       "uuid-100",
 					Liked:        true,
-					SwipedUserID: 101,
+					SwipedUserID: "uuid-101",
 				}},
 		},
 		{
 			name: "Partial swipe",
 			give: envelope{
 				"swipe": data.Swipe{
-					UserID:       100,
-					SwipedUserID: 101,
+					UserID:       "uuid-100",
+					SwipedUserID: "uuid-101",
 				}},
 		},
 		{
@@ -137,9 +137,9 @@ func TestWriteJSON(t *testing.T) {
 			}
 
 			var input struct {
-				UserID       int64 `json:"user_id"`
-				Liked        bool  `json:"liked"`
-				SwipedUserID int64 `json:"swiped_user_id"`
+				UserID       string `json:"user_id"`
+				Liked        bool   `json:"liked"`
+				SwipedUserID string `json:"swiped_user_id"`
 			}
 
 			js, err := json.Marshal(movieMap)
