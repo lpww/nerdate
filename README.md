@@ -13,12 +13,18 @@ An API for interacting with nerdate. Written in Go.
 | POST   | /v1/swipes          | createSwipeHandler   | Create a new swipe    |
 
 ## Prerequisites
+
 1. [go](https://go.dev)
 2. [make](https://www.gnu.org/software/make)
 3. [migrate](https://github.com/golang-migrate/migrate)
 4. [docker](https://www.docker.com)
 
+## Env Vars
+
+The `.example.envrc` file lists the variables that that application requires. Move them to `.envrc` and populate the values, they will be automatically loaded by `make` before running commands.
+
 ## Important Commands
+
 `make help`: list the available make commands
 `make db/up`: run the db in a docker container
 `make db/down`: stop the db 
