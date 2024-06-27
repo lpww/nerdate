@@ -11,7 +11,7 @@ confirm:
 ## run/api: run the cmd/api application
 .PHONY: run/api
 run/api:
-		go run ./cmd/api
+		go run ./cmd/api -db-dsn=${NERDATE_DB_DSN}
 
 ## db/up: start the database docker container
 .PHONY: db/up
