@@ -19,11 +19,10 @@ An API for interacting with nerdate. Written in Go.
 4. [docker](https://www.docker.com)
 
 ## Important Commands
+`make help`: list the available make commands
 `make db/up`: run the db in a docker container
 `make db/down`: stop the db 
 `make db/migrations/up`: run up migrations
-`make db/migrations/down`: run down migrations
-`make db/migrations/new name=<migration-name-here>`: create a new migration
 `make run/api`: run the server
 
 ## Folder structure
