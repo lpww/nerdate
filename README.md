@@ -12,7 +12,7 @@ An API for interacting with nerdate. Written in Go.
 | GET    | /v1/users/matches  | showMatchesHandler   | Show matches          |
 | POST   | /v1/swipes          | createSwipeHandler   | Create a new swipe    |
 
-## Pre-requisites
+## Prerequisites
 1. [go](https://go.dev)
 2. [make](https://www.gnu.org/software/make)
 3. [migrate](https://github.com/golang-migrate/migrate)
