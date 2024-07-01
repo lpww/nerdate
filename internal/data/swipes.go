@@ -32,7 +32,14 @@ type SwipeModel struct {
 }
 
 func (s SwipeModel) Insert(swipe *Swipe) error {
-	return nil
+  query := `
+    INSERT INTO swipes (user_id, liked, swiped_user_id)
+    VALUES ($1, $2, $3)
+    RETURNING id, created_at`
+
+  args := []any{swipe.UserID, swipe.Liked, swipe.SwipedUserID}
+
+	return s.DB.QueryRow(query, args...).Scan(&swipe.ID, &swipe.CreatedAt)
 }
 
 func (s SwipeModel) Get(id string) (*Swipe, error) {
