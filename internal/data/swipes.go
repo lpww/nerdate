@@ -1,6 +1,7 @@
 package data
 
 import (
+	"context"
 	"database/sql"
 	"time"
 
@@ -40,7 +41,10 @@ func (s SwipeModel) Insert(swipe *Swipe) error {
 
   args := []any{swipe.UserID, swipe.Liked, swipe.SwipedUserID}
 
-	return s.DB.QueryRow(query, args...).Scan(&swipe.ID, &swipe.CreatedAt)
+  ctx, cancel := context.WithTimeout(context.Background(), 3 * time.Second)
+  defer cancel()
+
+	return s.DB.QueryRowContext(ctx, query, args...).Scan(&swipe.ID, &swipe.CreatedAt)
 }
 
 func (s SwipeModel) Get(id string) (*Swipe, error) {
