@@ -54,6 +54,6 @@ func Unique[T comparable](values []T) bool {
 }
 
 func IsValidUUID(u string) bool {
-  _, err := uuid.Parse(u)
-  return err == nil
+	_, err := uuid.Parse(u)
+	return err == nil
 }

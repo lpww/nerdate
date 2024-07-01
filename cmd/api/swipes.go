@@ -21,7 +21,7 @@ func (app *application) createSwipeHandler(w http.ResponseWriter, r *http.Reques
 	}
 
 	swipe := &data.Swipe{
-    UserID: "51824827-85f8-4e32-854b-5d10da52446a", // todo: make this dynamic when auth has been implemented
+		UserID:       "51824827-85f8-4e32-854b-5d10da52446a", // todo: make this dynamic when auth has been implemented
 		SwipedUserID: input.SwipedUserID,
 		Liked:        input.Liked,
 	}
@@ -33,18 +33,18 @@ func (app *application) createSwipeHandler(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-  err = app.models.Swipes.Insert(swipe)
-  if err != nil {
-    app.serverErrorResponse(w, r, err)
-    return
-  }
+	err = app.models.Swipes.Insert(swipe)
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+		return
+	}
 
-  // add a location header so the user knows which url they can find the resource in
-  headers := make(http.Header)
-  headers.Set("Location", fmt.Sprintf("/v1/swipes/%s", swipe.ID))
+	// add a location header so the user knows which url they can find the resource in
+	headers := make(http.Header)
+	headers.Set("Location", fmt.Sprintf("/v1/swipes/%s", swipe.ID))
 
-  err = app.writeJSON(w, http.StatusCreated, envelope{"swipe": swipe}, headers)
-  if err != nil {
-    app.serverErrorResponse(w, r, err)
-  }
+	err = app.writeJSON(w, http.StatusCreated, envelope{"swipe": swipe}, headers)
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+	}
 }
