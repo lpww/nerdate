@@ -1,6 +1,7 @@
 package data
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/guregu/null"
@@ -24,4 +25,24 @@ func ValidateSwipe(v *validator.Validator, swipe *Swipe) {
 
 func (s1 Swipe) Equal(s2 Swipe) bool {
 	return s1.UserID == s2.UserID && s1.Liked == s2.Liked && s1.SwipedUserID == s2.SwipedUserID
+}
+
+type SwipeModel struct {
+	DB *sql.DB
+}
+
+func (s SwipeModel) Insert(swipe *Swipe) error {
+	return nil
+}
+
+func (s SwipeModel) Get(id string) (*Swipe, error) {
+	return nil, nil
+}
+
+func (s SwipeModel) Update(swipe *Swipe) error {
+	return nil
+}
+
+func (s SwipeModel) Delete(id string) error {
+	return nil
 }
