@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -155,7 +154,7 @@ func TestWriteJSON(t *testing.T) {
 			}
 
 			if _, ok := tt.give["swipe"]; !ok {
-				panic(fmt.Sprint("no swipe key in literal envelope"))
+				panic("no swipe key in literal envelope")
 			}
 
 			if !swipe.Equal(tt.give["swipe"].(data.Swipe)) {
