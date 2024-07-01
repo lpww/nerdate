@@ -3,6 +3,8 @@ package validator
 import (
 	"regexp"
 	"slices"
+
+	"github.com/google/uuid"
 )
 
 var (
@@ -49,4 +51,9 @@ func Unique[T comparable](values []T) bool {
 	}
 
 	return len(values) == len(uniqueValues)
+}
+
+func IsValidUUID(u string) bool {
+  _, err := uuid.Parse(u)
+  return err == nil
 }

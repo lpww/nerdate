@@ -153,3 +153,35 @@ func TestUnique(t *testing.T) {
 		})
 	}
 }
+
+func TestIsValidUUID(t *testing.T) {
+	tests := []struct {
+		name   string
+		input string
+		want   bool
+	}{
+		{
+			name:   "Should return true if the input contains a uuidv4",
+			input: "d7e167ac-22c0-45a6-9067-8e306666054c", // uuidv4
+			want:   true,
+		},
+		{
+			name:   "Should return false if the input is not a uuid",
+      input: "test string",
+			want:   false,
+		},
+		{
+			name:   "Should return false if the input contains an empty string",
+      input: "",
+			want:   false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			isValid := IsValidUUID(tt.input)
+
+			assert.Equal(t, isValid, tt.want)
+		})
+	}
+}

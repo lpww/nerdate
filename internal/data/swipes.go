@@ -21,6 +21,7 @@ type Swipe struct {
 
 func ValidateSwipe(v *validator.Validator, swipe *Swipe) {
 	v.Check(swipe.SwipedUserID != "", "swiped_user_id", "must be provided")
+	v.Check(validator.IsValidUUID(swipe.SwipedUserID), "swiped_user_id", "must be a valid uuidv4")
 }
 
 func (s1 Swipe) Equal(s2 Swipe) bool {
