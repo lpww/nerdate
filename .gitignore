@@ -1,2 +1,5 @@
 # direnv config file
 .envrc
+
+# binaries
+bin/
