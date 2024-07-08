@@ -22,15 +22,17 @@ type limiter struct {
 	enabled bool
 }
 
+type db struct {
+	dsn          string
+	maxOpenConns int
+	maxIdleConns int
+	maxIdleTime  time.Duration
+}
+
 type config struct {
-	port int
-	env  string
-	db   struct {
-		dsn          string
-		maxOpenConns int
-		maxIdleConns int
-		maxIdleTime  time.Duration
-	}
+	port    int
+	env     string
+	db      db
 	limiter limiter
 }
 
