@@ -4,9 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"flag"
-	"fmt"
 	"log/slog"
-	"net/http"
 	"os"
 	"time"
 
