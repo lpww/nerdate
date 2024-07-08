@@ -12,7 +12,16 @@ type testServer struct {
 }
 
 func newTestApplication() *application {
-	cfg := config{env: "testing"}
+	ltr := limiter{
+		burst:   4,
+		enabled: true,
+		rps:     2,
+	}
+
+	cfg := config{
+		env:     "testing",
+		limiter: ltr,
+	}
 
 	return &application{
 		config: cfg,
