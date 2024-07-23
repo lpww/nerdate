@@ -16,6 +16,7 @@ func (app *application) routes() http.Handler {
 
 	router.HandlerFunc(http.MethodPost, "/v1/swipes", app.createSwipeHandler)
 
+	router.HandlerFunc(http.MethodGet, "/v1/users/discover", app.discoverUsersHandler)
 	router.HandlerFunc(http.MethodPost, "/v1/users", app.registerUserHandler)
 
 	return app.recoverPanic(app.rateLimit(router))
