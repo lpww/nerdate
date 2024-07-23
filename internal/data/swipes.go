@@ -12,9 +12,9 @@ import (
 type Swipe struct {
 	ID string `json:"id"`
 
-	UserID       string `json:"user_id"` // todo: use the user.ID field when it's been created
+	UserID       string `json:"user_id"`
 	Liked        bool   `json:"liked"`
-	SwipedUserID string `json:"swiped_user_id"` // todo: use the user.ID field when it's been created
+	SwipedUserID string `json:"swiped_user_id"`
 
 	CreatedAt time.Time `json:"-"`
 	DeletedAt null.Time `json:"-"`
