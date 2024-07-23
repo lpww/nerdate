@@ -60,26 +60,26 @@ This project uses httprouter. It is a good option for public APIs because it all
 
 ## Example requests
 
-### GET /v1/healthcheck
+#### GET /v1/healthcheck
 
 ```
 curl -i localhost:4000/v1/healthcheck
 ```
 
-### POST /v1/users
+#### POST /v1/users
 
 ```
 export BODY='{"name": "lpww", "gender": "male", "dob": "2006-01-02T15:04:05Z", "ascii_art": "image here", "description": "test description", "email": "lpww@github.com", "password": "abcd1234"}'
 curl -i -d $BODY localhost:4000/v1/users
 ```
 
-### GET /v1/users/discover
+#### GET /v1/users/discover
 
 ```
 curl -i localhost:4000/v1/users/discover
 ```
 
-### POST /v1/swipes
+#### POST /v1/swipes
 
 ```
 export BODY='{"swiped_user_id":"eab9be97-fb18-449b-b568-5c37b89bff18","liked": true}'
