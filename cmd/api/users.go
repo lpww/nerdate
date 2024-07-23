@@ -33,7 +33,7 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 		ASCIIArt:    input.ASCIIArt,
 		Description: input.Description,
 		Email:       input.Email,
-    Activated:   true, // todo: set this to false once email confirmation is implemtented    
+		Activated:   true, // todo: set this to false once email confirmation is implemtented
 	}
 
 	err = user.Password.Set(input.Password)
@@ -64,6 +64,24 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 	}
 
 	err = app.writeJSON(w, http.StatusCreated, envelope{"user": user}, nil)
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+	}
+}
+
+func (app *application) discoverUsersHandler(w http.ResponseWriter, r *http.Request) {
+	// todo: add pagination, filters, and sorting based on query string
+	// todo: validate query string input
+	// todo: ignore people already swiped on
+	// todo: don't return the logged in user to themselves
+	// todo: filter options should be applied based on the logged in users search preferences
+	users, err := app.models.Users.GetAll()
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+		return
+	}
+
+	err = app.writeJSON(w, http.StatusOK, envelope{"users": users}, nil)
 	if err != nil {
 		app.serverErrorResponse(w, r, err)
 	}
