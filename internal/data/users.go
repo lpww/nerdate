@@ -119,6 +119,54 @@ func (m UserModel) Insert(user *User) error {
 	return nil
 }
 
+func (m UserModel) GetAll() ([]*User, error) {
+	query := `
+    SELECT id, created_at, version, name, gender, dob, ascii_art, description, email, activated
+    FROM users
+    ORDER BY id`
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	rows, err := m.DB.QueryContext(ctx, query)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+	users := []*User{}
+
+	for rows.Next() {
+		var user User
+
+		err := rows.Scan(
+			&user.ID,
+			&user.CreatedAt,
+			&user.Version,
+			&user.Name,
+			&user.Gender,
+			&user.DOB,
+			&user.ASCIIArt,
+			&user.Description,
+			&user.Email,
+			&user.Activated,
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		users = append(users, &user)
+	}
+
+	// check for errors that occured during rows.Next loop
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return users, nil
+}
+
 func (m UserModel) GetByEmail(email string) (*User, error) {
 	return nil, nil
 }
