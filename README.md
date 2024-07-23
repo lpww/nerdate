@@ -25,11 +25,11 @@ The `.example.envrc` file lists the variables that that application requires. Mo
 
 ## Important Commands
 
-`make help`: list the available make commands
-`make db/up`: run the db in a docker container
-`make db/down`: stop the db 
-`make db/migrations/up`: run up migrations
-`make run/api`: run the server
+* `make help`: list the available make commands
+* `make db/up`: run the db in a docker container
+* `make db/down`: stop the db 
+* `make db/migrations/up`: run up migrations
+* `make run/api`: run the server
 
 ## Folder structure
 
