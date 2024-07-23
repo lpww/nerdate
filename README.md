@@ -69,7 +69,7 @@ curl -i localhost:4000/v1/healthcheck
 ### POST /v1/users
 
 ```
-export BODY='{"name": "lpww", "gender": "male", "dob": "2006-01-02T15:04:05Z", "ascii_art": "image here", "description": "test description", "email": "lpww@github.com", "password": "abcd1234"}
+export BODY='{"name": "lpww", "gender": "male", "dob": "2006-01-02T15:04:05Z", "ascii_art": "image here", "description": "test description", "email": "lpww@github.com", "password": "abcd1234"}'
 curl -i -d $BODY localhost:4000/v1/users
 ```
 
@@ -82,6 +82,6 @@ curl -i localhost:4000/v1/users/discover
 ### POST /v1/swipes
 
 ```
-export BODY='{"swiped_user_id":"e6ca6971-3ba14-8834-a8d0b1c45322","liked": true}'
+export BODY='{"swiped_user_id":"eab9be97-fb18-449b-b568-5c37b89bff18","liked": true}'
 curl -i -d $BODY localhost:4000/v1/swipes
 ```
