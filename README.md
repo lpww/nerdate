@@ -57,3 +57,31 @@ cp .example.envrc .envrc
 ## Router
 
 This project uses httprouter. It is a good option for public APIs because it allows custom JSON responses when automatically hanlding 404 and 405 responses. It also automatically handles OPTIONS requests.
+
+## Example requests
+
+### GET /v1/healthcheck
+
+```
+curl -i localhost:4000/v1/healthcheck
+```
+
+### POST /v1/users
+
+```
+export BODY='{"name": "lpww", "gender": "male", "dob": "2006-01-02T15:04:05Z", "ascii_art": "image here", "description": "test description", "email": "lpww@github.com", "password": "abcd1234"}
+curl -i -d $BODY localhost:4000/v1/users
+```
+
+### GET /v1/users/discover
+
+```
+curl -i localhost:4000/v1/users/discover
+```
+
+### POST /v1/swipes
+
+```
+export BODY='{"swiped_user_id":"e6ca6971-3ba14-8834-a8d0b1c45322","liked": true}'
+curl -i -d $BODY localhost:4000/v1/swipes
+```
