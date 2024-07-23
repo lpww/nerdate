@@ -52,6 +52,12 @@ db/migrations/up: confirm
 		@echo 'Running up migrations...'
 		migrate -path ./migrations -database ${NERDATE_DB_DSN} up
 
+## db/migrations/down: apply all database down migrations
+.PHONY: db/migrations/down
+db/migrations/down:
+		@echo 'Running down migrations...'
+		migrate -path ./migrations -database ${NERDATE_DB_DSN} down
+
 ## quality control
 
 ## audit: tidy dependencies and format, vet, and test all code
