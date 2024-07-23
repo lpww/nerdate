@@ -43,6 +43,20 @@ cp .example.envrc .envrc
 * `make db/migrations/up`: run up migrations
 * `make run/api`: run the server
 
+## CLI Flags
+
+| Flag                 | Description                                          | Default        |
+| -------------------- | ---------------------------------------------------- | -------------- |
+| -port=               | Set the port that the server will listen on          | 4000           |
+| -env=                | Set the environment (development|staging|production) | development    |
+| -db-dsn=             | Set the PostgreSQL DSN                               | ""             |
+| -db-max-open-conns=  | Set the PostgreSQL max open connections              | 25             |
+| -db-max-idle-conns=  | Set the PostgreSQL max idle connections              | 25             |
+| -db-max-idle-time=   | Set the PostgreSQL max idle time (ms)                | 15*time.Minute |
+| -limiter-rps=        | Set the rate limiter max requests per second         | 2              |
+| -limiter-burst=      | Set the rate limiter max burst                       | 4              |
+| -limiter-enabled=    | Enable the rate limiter                              | true           |
+
 ## Folder structure
 
 * `bin`: Contains compiled application binaries, ready for deployment.
