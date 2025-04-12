@@ -1,5 +1,5 @@
-# Include variables from the .envrc file
-include .envrc
+# Include variables from the .env file
+include .env
 
 ## helpers
 

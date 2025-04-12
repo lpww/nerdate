@@ -22,10 +22,10 @@ An API for interacting with nerdate. Written in Go.
 
 ## Env Vars
 
-The `.example.envrc` file lists the variables that that application requires. Move them to `.envrc` and populate the values, they will be automatically loaded by `make` before running commands.
+The `.example.env` file lists the variables that that application requires. Move them to `.env` and populate the values, they will be automatically loaded by `make` before running commands.
 
 ```
-cp .example.envrc .envrc
+cp .example.env .env
 ```
 
 ## Quick Start
