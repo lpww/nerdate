@@ -33,8 +33,7 @@ func (app *application) createSwipeHandler(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-
-  // todo: add validation to ensure that the swiped user id exists in the users table
+	// todo: add validation to ensure that the swiped user id exists in the users table
 
 	err = app.models.Swipes.Insert(swipe)
 	if err != nil {
